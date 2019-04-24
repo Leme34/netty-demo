@@ -15,7 +15,6 @@ public class HelloServerInitializer extends ChannelInitializer {
         //1、取得对应的管道
         ChannelPipeline pipeline = channel.pipeline();
         //2、往管道添加handler
-
         //可理解为netty提供的编解码拦截器
         pipeline.addLast("HttpServerCodec",new HttpServerCodec());
         //自定义处理器

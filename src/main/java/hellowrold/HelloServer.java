@@ -19,7 +19,7 @@ public class HelloServer {
             ServerBootstrap serverBootstrap = new ServerBootstrap()
                     .group(mainGroup, subGroup)          //设置主从线程组
                     .channel(NioServerSocketChannel.class)  //设置nio通道
-                    .childHandler(new HelloServerInitializer()); //管道初始化器,指定从线程组处理所需要的子处理器
+                    .childHandler(new HelloServerInitializer()); //管道初始化器,指定从线程组处理请求所需要的子处理器
 
             //3、启动server，绑定8088端口，同步（监听等待）的方式启动
             //调用sync()会等待前面的方法执行完毕

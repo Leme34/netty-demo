@@ -36,8 +36,9 @@ public class CustomHandler extends SimpleChannelInboundHandler<HttpObject> {
             DefaultFullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1,
                     HttpResponseStatus.OK,
                     contentByteBuf);
-            response.headers().set(HttpHeaderNames.CONTENT_TYPE, "text/plain");
-            response.headers().set(HttpHeaderNames.CONTENT_LENGTH, contentByteBuf.readableBytes());  //可读的字节数
+            response.headers().set(HttpHeaderNames.CONTENT_TYPE, "text/plain;charset=utf-8");
+            //可读的字节数
+            response.headers().set(HttpHeaderNames.CONTENT_LENGTH, contentByteBuf.readableBytes());
 
             //4、返回体刷到客户端
             ctx.writeAndFlush(response);
